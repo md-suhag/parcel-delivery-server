@@ -20,7 +20,7 @@ export enum Division {
   MYMENSINGH = "MYMENSINGH",
 }
 
-interface IReceiver {
+export interface IReceiver {
   name: string;
   phone: string;
   email?: string;
@@ -28,7 +28,7 @@ interface IReceiver {
   city: Division;
 }
 
-interface IStatusLog {
+export interface IStatusLog {
   location?: string;
   time: Date;
   status: Status;
@@ -38,7 +38,7 @@ interface IStatusLog {
 export interface IParcel {
   trackingId: string;
   type: string;
-  weight: string;
+  weight: number;
   deliveryFee: number;
   sender: Types.ObjectId;
   receiver: IReceiver;
