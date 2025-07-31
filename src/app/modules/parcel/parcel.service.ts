@@ -45,8 +45,19 @@ const cancelMyParcel = async (parcelId: string, userId: string) => {
   );
 };
 
+const trackParcel = async (trackingId: string) => {
+  const parcelDetails = await Parcel.findOne({ trackingId })
+    .select("statusLogs receiver assignedRider")
+    .populate("assignedRider", "name phone");
+  if (!parcelDetails) {
+    throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
+  }
+  return parcelDetails;
+};
+
 export const ParcelService = {
   createParcel,
   getMyParcels,
   cancelMyParcel,
+  trackParcel,
 };

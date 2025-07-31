@@ -28,7 +28,7 @@ const getMyParcels = catchAsync(async (req: Request, res: Response) => {
 });
 const cancelMyParcel = catchAsync(async (req: Request, res: Response) => {
   const decodedToken = req.user as JwtPayload;
-  const parcelId = req.params.parcelId;
+  const parcelId = req.params.id;
   const result = await ParcelService.cancelMyParcel(
     parcelId,
     decodedToken.userId
@@ -41,8 +41,20 @@ const cancelMyParcel = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const trackParcel = catchAsync(async (req: Request, res: Response) => {
+  const result = await ParcelService.trackParcel(req.params.id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Parcel's details retrieved successfully",
+    data: result,
+  });
+});
+
 export const ParcelController = {
   createParcel,
   getMyParcels,
   cancelMyParcel,
+  trackParcel,
 };
