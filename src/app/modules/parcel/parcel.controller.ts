@@ -3,6 +3,7 @@ import { catchAsync } from "../../utils/catchAsync";
 import { ParcelService } from "./parcel.service";
 import { sendResponse } from "../../utils/sendResponse";
 import httpStatus from "http-status-codes";
+import { JwtPayload } from "jsonwebtoken";
 
 const createParcel = catchAsync(async (req: Request, res: Response) => {
   const result = await ParcelService.createParcel(req.body);
@@ -14,7 +15,18 @@ const createParcel = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getMyParcels = catchAsync(async (req: Request, res: Response) => {
+  const decodedToken = req.user as JwtPayload;
+  const result = await ParcelService.getMyParcels(decodedToken.userId);
 
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "All Parcel retrieved successfully",
+    data: result,
+  });
+});
 export const ParcelController = {
   createParcel,
+  getMyParcels,
 };

@@ -13,5 +13,12 @@ router.post(
   validateRequest(createParcelZodSchma),
   ParcelController.createParcel
 );
+// get Sender's parcels
+router.get(
+  "/me",
+  checkAuth(Role.SENDER, Role.ADMIN),
+
+  ParcelController.getMyParcels
+);
 
 export const parcelRoutes = router;
