@@ -1,11 +1,13 @@
 import { model, Schema } from "mongoose";
 import {
-  Division,
   IParcel,
   IReceiver,
   IStatusLog,
+  ParcelType,
   Status,
 } from "./parcel.interface";
+import { calculateDeliveryFee } from "../../utils/calculateDeliveryFee";
+import { calculateDeliveryDate } from "../../utils/calculateDeliveryDate";
 
 const statusLogsSchema = new Schema<IStatusLog>(
   {
@@ -48,11 +50,6 @@ const receiverSchema = new Schema<IReceiver>(
       type: String,
       required: true,
     },
-    city: {
-      type: String,
-      enum: Division,
-      required: true,
-    },
   },
   {
     versionKey: false,
@@ -64,10 +61,10 @@ const parcelSchema = new Schema<IParcel>(
     trackingId: {
       type: String,
       unique: true,
-      required: true,
     },
     type: {
       type: String,
+      enum: ParcelType,
       required: true,
     },
     weight: {
@@ -76,7 +73,6 @@ const parcelSchema = new Schema<IParcel>(
     },
     deliveryFee: {
       type: Number,
-      required: true,
     },
     sender: {
       type: Schema.Types.ObjectId,
@@ -91,7 +87,6 @@ const parcelSchema = new Schema<IParcel>(
     pickingAddress: { type: String, required: true },
     deliveryDate: {
       type: Date,
-      required: true,
     },
     status: { type: String, enum: Status, default: Status.REQUESTED },
     statusLogs: [statusLogsSchema],
@@ -105,4 +100,28 @@ const parcelSchema = new Schema<IParcel>(
   }
 );
 
-export const User = model<IParcel>("Parcel", parcelSchema);
+parcelSchema.pre("save", async function (next) {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  const baseTrackingId = `TRK-${year}${month}${day}`;
+  let randomPart = Math.floor(100000 + Math.random() * 900000);
+  let uniqueTrackingId = `${baseTrackingId}-${randomPart}`;
+
+  while (await Parcel.exists({ trackingId: uniqueTrackingId })) {
+    randomPart = Math.floor(100000 + Math.random() * 900000);
+    uniqueTrackingId = `${baseTrackingId}-${randomPart}`;
+  }
+
+  this.trackingId = uniqueTrackingId;
+
+  this.deliveryFee = calculateDeliveryFee(this.type, this.weight);
+
+  this.deliveryDate = calculateDeliveryDate(this.type);
+
+  next();
+});
+
+export const Parcel = model<IParcel>("Parcel", parcelSchema);

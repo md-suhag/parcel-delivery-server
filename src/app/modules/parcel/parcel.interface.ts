@@ -9,23 +9,12 @@ export enum Status {
   CANCELLED = "CANCELLED",
   RETURNED = "RETURNED",
 }
-export enum Division {
-  DHAKA = "DHAKA",
-  CHITTAGONG = "CHITTAGONG",
-  RAJSHAHI = "RAJSHAHI",
-  KHULNA = "KHULNA",
-  BARISAL = "BARISAL",
-  SYLHET = "SYLHET",
-  RANGPUR = "RANGPUR",
-  MYMENSINGH = "MYMENSINGH",
-}
 
 export interface IReceiver {
   name: string;
   phone: string;
   email?: string;
   address: string;
-  city: Division;
 }
 
 export interface IStatusLog {
@@ -34,10 +23,14 @@ export interface IStatusLog {
   status: Status;
   note?: string;
 }
+export enum ParcelType {
+  DOCUMENT = "DOCUMENT",
+  REGULAR = "REGULAR",
+}
 
 export interface IParcel {
   trackingId: string;
-  type: string;
+  type: ParcelType;
   weight: number;
   deliveryFee: number;
   sender: Types.ObjectId;
