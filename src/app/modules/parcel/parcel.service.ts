@@ -45,6 +45,21 @@ const cancelMyParcel = async (parcelId: string, userId: string) => {
     }
   );
 };
+const getStatusLogs = async (parcelId: string, userId: string) => {
+  const parcel = await Parcel.findById(parcelId).select("statusLogs sender");
+  if (!parcel) {
+    throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
+  }
+
+  if (parcel.sender.toString() !== userId) {
+    throw new AppError(
+      httpStatus.UNAUTHORIZED,
+      "You can't see another person's parcel log."
+    );
+  }
+
+  return parcel;
+};
 
 const trackParcel = async (trackingId: string) => {
   const parcelDetails = await Parcel.findOne({ trackingId })
@@ -117,6 +132,7 @@ export const ParcelService = {
   createParcel,
   getMyParcels,
   cancelMyParcel,
+  getStatusLogs,
   trackParcel,
   getIncommingParcel,
   confirmDelivery,

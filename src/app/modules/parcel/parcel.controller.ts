@@ -9,7 +9,7 @@ const createParcel = catchAsync(async (req: Request, res: Response) => {
   const result = await ParcelService.createParcel(req.body);
 
   sendResponse(res, {
-    statusCode: httpStatus.OK,
+    statusCode: httpStatus.CREATED,
     success: true,
     message: "Parcel created successfully",
     data: result,
@@ -38,6 +38,22 @@ const cancelMyParcel = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: "Parcel Cancelled successfully",
+    data: result,
+  });
+});
+
+const getStatusLogs = catchAsync(async (req: Request, res: Response) => {
+  const decodedToken = req.user as JwtPayload;
+  const parcelId = req.params.id;
+  const result = await ParcelService.getStatusLogs(
+    parcelId,
+    decodedToken.userId
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Parcel's status logs retrieved successfully",
     data: result,
   });
 });
@@ -96,6 +112,7 @@ export const ParcelController = {
   createParcel,
   getMyParcels,
   cancelMyParcel,
+  getStatusLogs,
   trackParcel,
   getIncommingParcel,
   confirmDelivery,

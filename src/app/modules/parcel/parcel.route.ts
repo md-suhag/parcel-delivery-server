@@ -26,6 +26,11 @@ router.patch(
   ParcelController.cancelMyParcel
 );
 router.get(
+  "/:id/status-logs",
+  checkAuth(Role.SENDER, Role.ADMIN),
+  ParcelController.getStatusLogs
+);
+router.get(
   "/track/:id",
 
   ParcelController.trackParcel
