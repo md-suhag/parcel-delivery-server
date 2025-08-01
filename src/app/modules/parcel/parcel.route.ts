@@ -30,5 +30,20 @@ router.get(
 
   ParcelController.trackParcel
 );
+router.get(
+  "/incomming",
+  checkAuth(Role.RECEIVER),
+  ParcelController.getIncommingParcel
+);
+router.patch(
+  "/:id/confirm",
+  checkAuth(Role.RECEIVER),
+  ParcelController.confirmDelivery
+);
+router.get(
+  "/history",
+
+  ParcelController.trackParcel
+);
 
 export const parcelRoutes = router;

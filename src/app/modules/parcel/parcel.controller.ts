@@ -52,9 +52,38 @@ const trackParcel = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getIncommingParcel = catchAsync(async (req: Request, res: Response) => {
+  const parcels = await ParcelService.getIncommingParcel(
+    req.user as JwtPayload
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Incomming parcels retrieved successfully",
+    data: parcels,
+  });
+});
+const confirmDelivery = catchAsync(async (req: Request, res: Response) => {
+  const parcelId = req.params.id;
+  const decodedToken = req.user;
+  const result = await ParcelService.confirmDelivery(
+    parcelId,
+    decodedToken as JwtPayload
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Delivery confirmed successfully",
+    data: result,
+  });
+});
+
 export const ParcelController = {
   createParcel,
   getMyParcels,
   cancelMyParcel,
   trackParcel,
+  getIncommingParcel,
+  confirmDelivery,
 };
