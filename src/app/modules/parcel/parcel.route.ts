@@ -41,9 +41,9 @@ router.patch(
   ParcelController.confirmDelivery
 );
 router.get(
-  "/history",
-
-  ParcelController.trackParcel
+  "/delivery-history",
+  checkAuth(Role.RECEIVER),
+  ParcelController.getDeliveryHistory
 );
 
 export const parcelRoutes = router;

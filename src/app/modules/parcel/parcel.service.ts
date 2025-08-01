@@ -107,6 +107,12 @@ const confirmDelivery = async (parcelId: string, decodedToken: JwtPayload) => {
   return updatedParcel;
 };
 
+const getDeliveryHistory = async (decodedToken: JwtPayload) => {
+  return await Parcel.find({
+    "receiver.phone": decodedToken.phone,
+    status: Status.DELIVERED,
+  }).lean();
+};
 export const ParcelService = {
   createParcel,
   getMyParcels,
@@ -114,4 +120,5 @@ export const ParcelService = {
   trackParcel,
   getIncommingParcel,
   confirmDelivery,
+  getDeliveryHistory,
 };

@@ -78,6 +78,19 @@ const confirmDelivery = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getDeliveryHistory = catchAsync(async (req: Request, res: Response) => {
+  const decodedToken = req.user;
+  const result = await ParcelService.getDeliveryHistory(
+    decodedToken as JwtPayload
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "All delivery  history of receiver retrieved successfully",
+    data: result,
+  });
+});
 
 export const ParcelController = {
   createParcel,
@@ -86,4 +99,5 @@ export const ParcelController = {
   trackParcel,
   getIncommingParcel,
   confirmDelivery,
+  getDeliveryHistory,
 };
