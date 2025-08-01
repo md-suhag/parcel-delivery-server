@@ -9,6 +9,14 @@ import {
 import { calculateDeliveryFee } from "../../utils/calculateDeliveryFee";
 import { calculateDeliveryDate } from "../../utils/calculateDeliveryDate";
 
+enum ExtendedStatus {
+  BLOCKED = "BLOCKED",
+  UNBLOCKED = "UNBLOCKED",
+}
+const AllStatus = {
+  ...Status,
+  ...ExtendedStatus,
+};
 const statusLogsSchema = new Schema<IStatusLog>(
   {
     location: {
@@ -20,7 +28,7 @@ const statusLogsSchema = new Schema<IStatusLog>(
     },
     status: {
       type: String,
-      enum: Status,
+      enum: AllStatus,
       required: true,
     },
     note: {
@@ -92,6 +100,7 @@ const parcelSchema = new Schema<IParcel>(
     statusLogs: [statusLogsSchema],
     isBlocked: {
       type: Boolean,
+      default: true,
     },
   },
   {
@@ -129,6 +138,33 @@ parcelSchema.pre("save", async function (next) {
         time: new Date(),
       },
     ];
+  }
+
+  next();
+});
+
+parcelSchema.pre("findOneAndUpdate", async function (next) {
+  const update = this.getUpdate();
+  if (Array.isArray(update)) return next();
+  const status = update?.status;
+  const note = update?.noteForLog;
+  const location = update?.locationForLog;
+
+  if (status) {
+    this.setUpdate({
+      ...update,
+      $push: {
+        statusLogs: {
+          status,
+          location: location || "Unknown location",
+          note: note || "",
+          timestamp: new Date(),
+        },
+      },
+    });
+
+    delete update.noteForLog;
+    delete update.locationForLog;
   }
 
   next();

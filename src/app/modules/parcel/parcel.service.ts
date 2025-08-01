@@ -22,6 +22,9 @@ const cancelMyParcel = async (parcelId: string, userId: string) => {
       "You can't cancel another person's parcel."
     );
   }
+  if (parcel.isBlocked) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel is blocked");
+  }
 
   if (parcel.status !== Status.REQUESTED) {
     throw new AppError(
@@ -75,6 +78,7 @@ const getIncommingParcel = async (decodedToken: JwtPayload) => {
   const incommingParcels = await Parcel.find({
     "receiver.phone": decodedToken.phone,
     status: { $nin: [Status.DELIVERED, Status.CANCELLED] },
+    isBlocked: false,
   });
 
   return incommingParcels;
@@ -93,6 +97,9 @@ const confirmDelivery = async (parcelId: string, decodedToken: JwtPayload) => {
     );
   }
 
+  if (parcel.isBlocked) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel is blocked");
+  }
   if (parcel.status === Status.DELIVERED) {
     throw new AppError(httpStatus.BAD_REQUEST, "Parcel already delivered");
   }

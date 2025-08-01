@@ -92,6 +92,14 @@ const blockParcel = async (parcelId: string) => {
     parcelId,
     {
       isBlocked: true,
+      $push: {
+        statusLogs: {
+          status: "BLOCKED",
+          location: "Unknown location",
+          note: "Blocked by admin",
+          timestamp: new Date(),
+        },
+      },
     },
     { runValidators: true }
   );
@@ -110,6 +118,14 @@ const unBlockParcel = async (parcelId: string) => {
     parcelId,
     {
       isBlocked: false,
+      $push: {
+        statusLogs: {
+          status: "UNBLOCKED",
+          location: "Unknown location",
+          note: "Unblocked by admin",
+          timestamp: new Date(),
+        },
+      },
     },
     { runValidators: true }
   );
