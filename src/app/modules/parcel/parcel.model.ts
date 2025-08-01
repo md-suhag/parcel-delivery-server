@@ -100,7 +100,7 @@ const parcelSchema = new Schema<IParcel>(
     statusLogs: [statusLogsSchema],
     isBlocked: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   {
@@ -136,6 +136,7 @@ parcelSchema.pre("save", async function (next) {
         status: this.status,
         location: this.pickingAddress || "Sender location",
         time: new Date(),
+        note: "New parcel request by Sender",
       },
     ];
   }

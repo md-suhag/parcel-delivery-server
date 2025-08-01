@@ -33,19 +33,14 @@ const cancelMyParcel = async (parcelId: string, userId: string) => {
     );
   }
 
-  await Parcel.updateOne(
-    { _id: parcelId },
+  await Parcel.findByIdAndUpdate(
+    parcelId,
     {
-      $set: { status: Status.CANCELLED },
-      $push: {
-        statusLogs: {
-          location: parcel.pickingAddress,
-          status: Status.CANCELLED,
-          time: new Date(),
-          note: "Parcel cancelled by sender",
-        },
-      },
-    }
+      status: Status.CANCELLED,
+      locationForLog: parcel.pickingAddress,
+      noteForLog: "Parcel cancelled by sender",
+    },
+    { runValidators: true }
   );
 };
 const getStatusLogs = async (parcelId: string, userId: string) => {
@@ -113,15 +108,9 @@ const confirmDelivery = async (parcelId: string, decodedToken: JwtPayload) => {
   const updatedParcel = await Parcel.findByIdAndUpdate(
     parcelId,
     {
-      $set: { status: Status.DELIVERED },
-      $push: {
-        statusLogs: {
-          location: parcel.receiver.address,
-          status: Status.DELIVERED,
-          time: new Date(),
-          note: "Parcel accepted by receiver",
-        },
-      },
+      status: Status.DELIVERED,
+      noteForLog: "Parcel accepted by receiver",
+      locationForLog: parcel.receiver.address,
     },
     { runValidators: true, new: true }
   );
