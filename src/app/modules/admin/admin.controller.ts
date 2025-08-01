@@ -41,8 +41,24 @@ const unBlockUser = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const getAllParcels = catchAsync(async (req: Request, res: Response) => {
+  const query = req.query;
+  const result = await AdminService.getAllParcels(
+    query as Record<string, string>
+  );
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "All parcels retrieved successfully",
+    data: result.data,
+    meta: result.meta,
+  });
+});
 export const AdminController = {
   getAllUsers,
   blockUser,
   unBlockUser,
+  getAllParcels,
 };

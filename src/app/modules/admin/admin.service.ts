@@ -1,5 +1,7 @@
 import AppError from "../../errorHelpers/AppError";
 import { QueryBuilder } from "../../utils/QueryBuilder";
+import { parcelSearchableFields } from "../parcel/parcel.constant";
+import { Parcel } from "../parcel/parcel.model";
 import { IsActive } from "../user/user.interface";
 
 import { User } from "../user/user.model";
@@ -57,8 +59,29 @@ const unBlockUser = async (userId: string) => {
   return null;
 };
 
+const getAllParcels = async (query: Record<string, string>) => {
+  const queryBuilder = new QueryBuilder(Parcel.find(), query);
+
+  const parcels = await queryBuilder
+    .search(parcelSearchableFields)
+    .filter()
+    .sort()
+    .fields()
+    .paginate();
+
+  const [data, meta] = await Promise.all([
+    parcels.build(),
+    queryBuilder.getMeta(),
+  ]);
+  return {
+    data,
+    meta,
+  };
+};
+
 export const AdminService = {
   getAllUsers,
   blockUser,
   unBlockUser,
+  getAllParcels,
 };
