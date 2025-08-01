@@ -1,6 +1,7 @@
 import AppError from "../../errorHelpers/AppError";
 import { QueryBuilder } from "../../utils/QueryBuilder";
 import { parcelSearchableFields } from "../parcel/parcel.constant";
+
 import { Parcel } from "../parcel/parcel.model";
 import { IsActive } from "../user/user.interface";
 
@@ -79,9 +80,47 @@ const getAllParcels = async (query: Record<string, string>) => {
   };
 };
 
+const blockParcel = async (parcelId: string) => {
+  const parcel = await Parcel.findById(parcelId);
+  if (!parcel) {
+    throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
+  }
+  if (parcel.isBlocked === true) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel aready blocked");
+  }
+  await Parcel.findByIdAndUpdate(
+    parcelId,
+    {
+      isBlocked: true,
+    },
+    { runValidators: true }
+  );
+
+  return null;
+};
+const unBlockParcel = async (parcelId: string) => {
+  const parcel = await Parcel.findById(parcelId);
+  if (!parcel) {
+    throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
+  }
+  if (parcel.isBlocked === false) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel aready unblocked");
+  }
+  await Parcel.findByIdAndUpdate(
+    parcelId,
+    {
+      isBlocked: false,
+    },
+    { runValidators: true }
+  );
+
+  return null;
+};
 export const AdminService = {
   getAllUsers,
   blockUser,
   unBlockUser,
   getAllParcels,
+  blockParcel,
+  unBlockParcel,
 };

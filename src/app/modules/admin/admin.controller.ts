@@ -56,9 +56,34 @@ const getAllParcels = catchAsync(async (req: Request, res: Response) => {
     meta: result.meta,
   });
 });
+const blockParcel = catchAsync(async (req: Request, res: Response) => {
+  const parcelId = req.params.id;
+  const result = await AdminService.blockParcel(parcelId);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Parcel blocked successfully",
+    data: result,
+  });
+});
+const unBlockParcel = catchAsync(async (req: Request, res: Response) => {
+  const parcelId = req.params.id;
+  const result = await AdminService.unBlockParcel(parcelId);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Parcel unblocked successfully",
+    data: result,
+  });
+});
+
 export const AdminController = {
   getAllUsers,
   blockUser,
   unBlockUser,
   getAllParcels,
+  blockParcel,
+  unBlockParcel,
 };

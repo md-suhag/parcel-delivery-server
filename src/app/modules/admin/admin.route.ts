@@ -12,5 +12,6 @@ router.patch("/users/:id/block", AdminController.blockUser);
 router.patch("/users/:id/unblock", AdminController.unBlockUser);
 
 router.get("/parcels", AdminController.getAllParcels);
-
+router.patch("/parcels/:id/block", AdminController.blockParcel);
+router.patch("/parcels/:id/unblock", AdminController.unBlockParcel);
 export const adminRoutes = router;
