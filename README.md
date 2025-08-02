@@ -86,7 +86,75 @@ EXPRESS_SESSION_SECRET= your session secret
 npm run dev
 ```
 
-## # API Endpoints:
+<!-- ![Parcel Delivery ER Diagram](./Parcel Delivery ER Diagram.jpg) -->
+
+### ER Diagram
+
+<img src="./Parcel Delivery ER Diagram.jpg">
+
+## ###API ENDPOINT SUMMARY###
+
+## #Authentication APIs
+
+| Method | Endpoint                   | Description                             |
+| ------ | -------------------------- | --------------------------------------- |
+| POST   | /api/v1/auth/register      | Register user (sender/receiver)         |
+| POST   | /api/v1/auth/login         | User login                              |
+| POST   | /api/v1/auth/logout        | User logout                             |
+| POST   | /api/v1/auth/refresh-token | get new access token with refresh token |
+
+---
+
+## #Parcel APIs
+
+### For Sender
+
+| Method | Endpoint                        | Description                            |
+| ------ | ------------------------------- | -------------------------------------- |
+| POST   | /api/v1/parcels/                | Create parcel                          |
+| GET    | /api/v1/parcels/me              | Get all parcels sent by current sender |
+| PATCH  | /api/v1/parcels/:id/cancel      | Cancel parcel (if not yet dispatched)  |
+| GET    | /api/v1/parcels/:id/status-logs | Get status logs for a specific parcel  |
+
+### For Receiver
+
+| Method | Endpoint                    | Description                        |
+| ------ | --------------------------- | ---------------------------------- |
+| GET    | /api/v1/parcels/incoming    | View parcels addressed to receiver |
+| PATCH  | /api/v1/parcels/:id/confirm | Confirm parcel delivery            |
+| GET    | /api/v1/parcels/history     | View delivery history (received)   |
+
+---
+
+### For Admin
+
+| Method | Endpoint                          | Description                                   |
+| ------ | --------------------------------- | --------------------------------------------- |
+| GET    | /api/v1/admin/users               | List all users                                |
+| PATCH  | /api/v1/admin/users/:id/block     | Block a user                                  |
+| PATCH  | /api/v1/admin/users/:id/unblock   | Unblock a user                                |
+| GET    | /api/v1/admin/parcels             | List all parcels with filter/search by status |
+| PATCH  | /api/v1/admin/parcels/:id/block   | Block a parcel                                |
+| PATCH  | /api/v1/admin/parcels/:id/unblock | Unblock a parcel                              |
+| PATCH  | /api/v1/admin/parcels/:id/status  | Update parcel delivery status                 |
+| PATCH  | /api/v1/admin/parcels/:id/assign  | Assign a rider to a parcel                    |
+
+---
+
+## #Parcel Tracking (Public)
+
+| Method | Endpoint                  | Description                            |
+| ------ | ------------------------- | -------------------------------------- |
+| GET    | /api/v1/parcels/track/:id | Track a parcel by tracking ID (public) |
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+# ### API Endpoints Details:
 
 # # User
 
