@@ -16,9 +16,7 @@ interface EnvConfig {
   ADMIN_EMAIL: string;
   ADMIN_PASSWORD: string;
   ADMIN_ADDRESS: string;
-  GOOOGLE_CLIENT_SECRET: string;
-  GOOGLE_CLIENT_ID: string;
-  GOOGLE_CALLBACK_URL: string;
+
   EXPRESS_SESSION_SECRET: string;
 }
 
@@ -37,9 +35,7 @@ const loadEnvVariables = (): EnvConfig => {
     "ADMIN_EMAIL",
     "ADMIN_PASSWORD",
     "ADMIN_ADDRESS",
-    "GOOOGLE_CLIENT_SECRET",
-    "GOOGLE_CLIENT_ID",
-    "GOOGLE_CALLBACK_URL",
+
     "EXPRESS_SESSION_SECRET",
   ];
   requiredEnvVariables.forEach((key) => {
@@ -61,9 +57,7 @@ const loadEnvVariables = (): EnvConfig => {
     ADMIN_EMAIL: process.env.ADMIN_EMAIL as string,
     ADMIN_ADDRESS: process.env.ADMIN_ADDRESS as string,
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD as string,
-    GOOOGLE_CLIENT_SECRET: process.env.GOOOGLE_CLIENT_SECRET as string,
-    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID as string,
-    GOOGLE_CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL as string,
+
     EXPRESS_SESSION_SECRET: process.env.EXPRESS_SESSION_SECRET as string,
   };
 };
