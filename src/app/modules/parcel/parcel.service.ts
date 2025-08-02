@@ -4,8 +4,11 @@ import { IParcel, Status } from "./parcel.interface";
 import { Parcel } from "./parcel.model";
 import httpStatus from "http-status-codes";
 
-const createParcel = async (payload: IParcel) => {
-  return await Parcel.create(payload);
+const createParcel = async (payload: IParcel, decodedToken: JwtPayload) => {
+  return await Parcel.create({
+    ...payload,
+    sender: decodedToken.userId,
+  });
 };
 const getMyParcels = async (id: string) => {
   return await Parcel.find({ sender: id });
@@ -62,8 +65,12 @@ const getStatusLogs = async (parcelId: string, userId: string) => {
 
 const trackParcel = async (trackingId: string) => {
   const parcelDetails = await Parcel.findOne({ trackingId })
-    .select("statusLogs receiver assignedRider")
+    .select("statusLogs receiver assignedRider isBlocked")
     .populate("assignedRider", "name phone");
+
+  if (parcelDetails?.isBlocked === true) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel is blocked");
+  }
   if (!parcelDetails) {
     throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
   }

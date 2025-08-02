@@ -6,7 +6,11 @@ import httpStatus from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
 
 const createParcel = catchAsync(async (req: Request, res: Response) => {
-  const result = await ParcelService.createParcel(req.body);
+  const decodedToken = req.user;
+  const result = await ParcelService.createParcel(
+    req.body,
+    decodedToken as JwtPayload
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
