@@ -188,7 +188,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n    \"phone\":\"01766758317\",\r\n    \"password\":\"123456@A\"\r\n   \r\n}",
+							"raw": "{\r\n    \r\n    \"phone\":\"01766758301\",\r\n    \"password\":\"123456@A\"\r\n   \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -842,12 +842,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkZTM0MzNiODAzYmJhNWJhMjgxOWYiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDEzNTkxOCwiZXhwIjoxNzU0MjIyMzE4fQ.G600qMNEfksSAeV1u1kDkw9Z6zmq3Us4VAUMxv3mP3A",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/parcels/688dc717cc43801d5ba9b2cf/cancel",
+							"raw": "{{baseURL}}/api/v1/parcels/688de3f7186e521ff7cc6c87/cancel",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -855,7 +855,7 @@
 								"api",
 								"v1",
 								"parcels",
-								"688dc717cc43801d5ba9b2cf",
+								"688de3f7186e521ff7cc6c87",
 								"cancel"
 							]
 						}
@@ -1187,7 +1187,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/confirm",
+							"raw": "{{baseURL}}/api/v1/parcels/688dfb3dbc858e1c440a91af/confirm",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -1195,7 +1195,7 @@
 								"api",
 								"v1",
 								"parcels",
-								"688dc9c93e93c9533d35f27d",
+								"688dfb3dbc858e1c440a91af",
 								"confirm"
 							]
 						}
@@ -1443,12 +1443,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkZTM0MzNiODAzYmJhNWJhMjgxOWYiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDEzNTkxOCwiZXhwIjoxNzU0MjIyMzE4fQ.G600qMNEfksSAeV1u1kDkw9Z6zmq3Us4VAUMxv3mP3A",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/status-logs",
+							"raw": "{{baseURL}}/api/v1/parcels/688dfb3dbc858e1c440a91af/status-logs",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -1456,7 +1456,7 @@
 								"api",
 								"v1",
 								"parcels",
-								"688dc9c93e93c9533d35f27d",
+								"688dfb3dbc858e1c440a91af",
 								"status-logs"
 							]
 						}
@@ -1714,7 +1714,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/block",
+							"raw": "{{baseURL}}/api/v1/admin/users/688de3da3b803bba5ba281a5/block",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -1723,7 +1723,7 @@
 								"v1",
 								"admin",
 								"users",
-								"688dcafb3e93c9533d35f28d",
+								"688de3da3b803bba5ba281a5",
 								"block"
 							]
 						}
@@ -1741,7 +1741,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/block",
+									"raw": "{{baseURL}}/api/v1/admin/users/688de3da3b803bba5ba281a5/block",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -1750,7 +1750,7 @@
 										"v1",
 										"admin",
 										"users",
-										"688dcafb3e93c9533d35f28d",
+										"688de3da3b803bba5ba281a5",
 										"block"
 									]
 								}
@@ -1883,7 +1883,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/unblock",
+							"raw": "{{baseURL}}/api/v1/admin/users/688de3da3b803bba5ba281a5/unblock",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -1892,7 +1892,7 @@
 								"v1",
 								"admin",
 								"users",
-								"688dcafb3e93c9533d35f28d",
+								"688de3da3b803bba5ba281a5",
 								"unblock"
 							]
 						}
@@ -2225,7 +2225,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/block",
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688de3f7186e521ff7cc6c87/block",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -2234,7 +2234,7 @@
 								"v1",
 								"admin",
 								"parcels",
-								"688dc717cc43801d5ba9b2cf",
+								"688de3f7186e521ff7cc6c87",
 								"block"
 							]
 						}
@@ -2394,7 +2394,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/unblock",
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688de3f7186e521ff7cc6c87/unblock",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -2403,7 +2403,7 @@
 								"v1",
 								"admin",
 								"parcels",
-								"688dc717cc43801d5ba9b2cf",
+								"688de3f7186e521ff7cc6c87",
 								"unblock"
 							]
 						}
@@ -2502,7 +2502,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc9c93e93c9533d35f27d/status",
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688dfb3dbc858e1c440a91af/status",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -2511,7 +2511,7 @@
 								"v1",
 								"admin",
 								"parcels",
-								"688dc9c93e93c9533d35f27d",
+								"688dfb3dbc858e1c440a91af",
 								"status"
 							]
 						}
@@ -2619,7 +2619,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc9c93e93c9533d35f27d/assign",
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688dfb3dbc858e1c440a91af/assign",
 							"host": [
 								"{{baseURL}}"
 							],
@@ -2628,7 +2628,7 @@
 								"v1",
 								"admin",
 								"parcels",
-								"688dc9c93e93c9533d35f27d",
+								"688dfb3dbc858e1c440a91af",
 								"assign"
 							]
 						}
@@ -2714,6 +2714,28 @@
 							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Rider assigned in parcel successfully\",\n    \"data\": {\n        \"_id\": \"688dc9c93e93c9533d35f27d\",\n        \"status\": \"ASSIGNED\",\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:18:17.305Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"ASSIGNED\",\n                \"note\": \"Rider assigned by admin\"\n            }\n        ],\n        \"assignedRider\": \"688dcafb3e93c9533d35f28d\"\n    }\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://parcel-delivery-server-ten.vercel.app",
+							"protocol": "https",
+							"host": [
+								"parcel-delivery-server-ten",
+								"vercel",
+								"app"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

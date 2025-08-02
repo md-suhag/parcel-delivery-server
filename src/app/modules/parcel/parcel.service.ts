@@ -28,7 +28,9 @@ const cancelMyParcel = async (parcelId: string, userId: string) => {
   if (parcel.isBlocked) {
     throw new AppError(httpStatus.BAD_REQUEST, "Parcel is blocked");
   }
-
+  if (parcel.status === Status.CANCELLED) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel already cancelled");
+  }
   if (parcel.status !== Status.REQUESTED) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
