@@ -98,7 +98,7 @@ npm run dev
 
 | Method | Endpoint                   | Description                             |
 | ------ | -------------------------- | --------------------------------------- |
-| POST   | /api/v1/auth/register      | Register user (sender/receiver)         |
+| POST   | /api/v1/auth/register      | Register user (sender/receiver/rider)   |
 | POST   | /api/v1/auth/login         | User login                              |
 | POST   | /api/v1/auth/logout        | User logout                             |
 | POST   | /api/v1/auth/refresh-token | get new access token with refresh token |
@@ -111,9 +111,9 @@ npm run dev
 
 | Method | Endpoint                        | Description                            |
 | ------ | ------------------------------- | -------------------------------------- |
-| POST   | /api/v1/parcels/                | Create parcel                          |
+| POST   | /api/v1/parcels/                | Create parcel by sender or admin       |
 | GET    | /api/v1/parcels/me              | Get all parcels sent by current sender |
-| PATCH  | /api/v1/parcels/:id/cancel      | Cancel parcel (if not yet dispatched)  |
+| PATCH  | /api/v1/parcels/:id/cancel      | Cancel parcel (if not yet assigned)    |
 | GET    | /api/v1/parcels/:id/status-logs | Get status logs for a specific parcel  |
 
 ### For Receiver
@@ -381,7 +381,7 @@ npm run dev
 
 ### 3. Cancel Parcel
 
-- Endpoint: `PATCH /api/v1/parcels/688dc717cc43801d5ba9b2cf/cancel`
+- Endpoint: `PATCH /api/v1/parcels/:id/cancel`
 
 - Request Body:
 
@@ -430,7 +430,7 @@ npm run dev
 
 ### 4. Track Parcel
 
-- Endpoint: `GET /api/v1/parcels/:id/cancel`
+- Endpoint: `GET /api/v1/parcels/track/:id`
 
 - Request Body:
 
