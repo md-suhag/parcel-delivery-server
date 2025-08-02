@@ -29,10 +29,6 @@ export const checkAuth =
         throw new AppError(StatusCodes.BAD_REQUEST, "User does not exist");
       }
 
-      if (!isUserExist.isVerified) {
-        throw new AppError(StatusCodes.BAD_REQUEST, "User is not verified");
-      }
-
       if (
         isUserExist.isActive === IsActive.BLOCKED ||
         isUserExist.isActive === IsActive.INACTIVE

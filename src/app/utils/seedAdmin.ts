@@ -32,7 +32,7 @@ export const seedAdmin = async () => {
       email: envVars.ADMIN_EMAIL,
       password: hashedPassword,
       address: envVars.ADMIN_ADDRESS,
-      isVerified: true,
+
       auths: [authProvider],
     };
     const admin = await User.create(payload);
