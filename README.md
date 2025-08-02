@@ -1123,3 +1123,5 @@ npm run dev
 ### Error Handling
 
 The application handles errors using global error handling with appropriate error messages and status codes.
+
+### Thank you. Keep Creating.
