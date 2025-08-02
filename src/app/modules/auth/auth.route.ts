@@ -19,4 +19,7 @@ router.post(
   AuthController.credentialsLogin
 );
 
+router.post("/logout", AuthController.logout);
+router.post("/refresh-token", AuthController.getNewAccessToken);
+
 export const authRoutes = router;

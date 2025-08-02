@@ -49,7 +49,48 @@ const credentialsLogin = catchAsync(
     })(req, res, next);
   }
 );
+
+const logout = catchAsync(
+  async (req: Request, res: Response, nex: NextFunction) => {
+    res.clearCookie("accessToken", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+    });
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+    });
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "User Logged out successfully",
+      data: null,
+    });
+  }
+);
+const getNewAccessToken = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const refreshToken = req.headers.authorization;
+    const tokenInfo = await AuthService.getNewAccessToken(
+      refreshToken as string
+    );
+
+    setAuthCookie(res, tokenInfo);
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "New Access token created successfully",
+      data: tokenInfo,
+    });
+  }
+);
+
 export const AuthController = {
   register,
   credentialsLogin,
+  logout,
+  getNewAccessToken,
 };

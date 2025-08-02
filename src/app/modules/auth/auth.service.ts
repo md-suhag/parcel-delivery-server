@@ -5,6 +5,7 @@ import { IAuthProvider, IUser } from "../user/user.interface";
 import bcryptjs from "bcryptjs";
 import { envVars } from "../../config/env";
 import { User } from "../user/user.model";
+import { createNewAcccessTokenWithRefreshToken } from "../../utils/userTokens";
 
 const register = async (payload: Partial<IUser>) => {
   const { phone, password, role, ...rest } = payload;
@@ -38,6 +39,15 @@ const register = async (payload: Partial<IUser>) => {
   return user;
 };
 
+const getNewAccessToken = async (refreshToken: string) => {
+  const newAccessToken = await createNewAcccessTokenWithRefreshToken(
+    refreshToken
+  );
+  return {
+    accessToken: newAccessToken,
+  };
+};
 export const AuthService = {
   register,
+  getNewAccessToken,
 };

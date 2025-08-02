@@ -193,7 +193,7 @@ const assignRider = async (parcelId: string, riderId: string) => {
       status: Status.ASSIGNED,
       assignedRider: riderId,
       locationForLog: "Admin Panel",
-      notForLog: `Rider assigned by admin`,
+      noteForLog: `Rider assigned by admin`,
     },
     { runValidators: true }
   );
