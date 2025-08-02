@@ -79,6 +79,30 @@ const unBlockParcel = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateParcelStatus = catchAsync(async (req: Request, res: Response) => {
+  const parcelId = req.params.id;
+  const status = req.body.status;
+  const result = await AdminService.updateParcelStatus(parcelId, status);
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Parcel status updated successfully",
+    data: result,
+  });
+});
+
+const assignRider = catchAsync(async (req: Request, res: Response) => {
+  const parcelId = req.params.id;
+  const riderId = req.body.riderId;
+  const result = await AdminService.assignRider(parcelId, riderId);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Rider assigned in parcel successfully",
+    data: result,
+  });
+});
 export const AdminController = {
   getAllUsers,
   blockUser,
@@ -86,4 +110,6 @@ export const AdminController = {
   getAllParcels,
   blockParcel,
   unBlockParcel,
+  updateParcelStatus,
+  assignRider,
 };

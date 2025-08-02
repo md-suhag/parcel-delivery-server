@@ -1,6 +1,10 @@
 import AppError from "../../errorHelpers/AppError";
 import { QueryBuilder } from "../../utils/QueryBuilder";
-import { parcelSearchableFields } from "../parcel/parcel.constant";
+import {
+  parcelSearchableFields,
+  ValidStatusFlow,
+} from "../parcel/parcel.constant";
+import { Status } from "../parcel/parcel.interface";
 
 import { Parcel } from "../parcel/parcel.model";
 import { IsActive } from "../user/user.interface";
@@ -132,6 +136,69 @@ const unBlockParcel = async (parcelId: string) => {
 
   return null;
 };
+
+const updateParcelStatus = async (parcelId: string, status: Status) => {
+  const parcel = await Parcel.findById(parcelId);
+
+  if (!parcel) {
+    throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
+  }
+  if (parcel.isBlocked) {
+    throw new AppError(
+      httpStatus.FORBIDDEN,
+      "This parcel is currently blocked"
+    );
+  }
+
+  if (!ValidStatusFlow[parcel.status].includes(status)) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      `Invalid: transition .You can't change status from ${parcel.status} to ${status}`
+    );
+  }
+
+  await Parcel.findByIdAndUpdate(
+    parcelId,
+    {
+      status,
+      locationForLog: "Admin Panel",
+      notForLog: `Status updated to ${status} by admin`,
+    },
+    { runValidators: true }
+  );
+  return null;
+};
+
+const assignRider = async (parcelId: string, riderId: string) => {
+  const parcel = await Parcel.findById(parcelId);
+
+  if (!parcel) {
+    throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
+  }
+  if (parcel.isBlocked) {
+    throw new AppError(
+      httpStatus.FORBIDDEN,
+      "This parcel is currently blocked"
+    );
+  }
+  if (!ValidStatusFlow[parcel.status].includes(Status.ASSIGNED)) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      `Invalid: transition .You can't change status from ${parcel.status} to ${status}`
+    );
+  }
+  await Parcel.findByIdAndUpdate(
+    parcelId,
+    {
+      status: Status.ASSIGNED,
+      assignedRider: riderId,
+      locationForLog: "Admin Panel",
+      notForLog: `Rider assigned by admin`,
+    },
+    { runValidators: true }
+  );
+  return null;
+};
 export const AdminService = {
   getAllUsers,
   blockUser,
@@ -139,4 +206,6 @@ export const AdminService = {
   getAllParcels,
   blockParcel,
   unBlockParcel,
+  updateParcelStatus,
+  assignRider,
 };
