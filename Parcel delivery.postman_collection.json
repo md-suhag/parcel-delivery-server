@@ -1,0 +1,2721 @@
+{
+	"info": {
+		"_postman_id": "eb5ae68a-c29e-4922-bd0d-0592ef2156fd",
+		"name": "Parcel delivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34222191"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"suhag\",\r\n    \"phone\":\"01766758317\",\r\n    \"email\":\"abdussalamsuhag104@gmail.com\",\r\n    \"password\":\"123456@A\",\r\n    \"address\":\"Sylhet\",\r\n    \"role\":\"SENDER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"suhag\",\r\n    \"phone\":\"01766758317\",\r\n    \"email\":\"abdussalamsuhag104@gmail.com\",\r\n    \"password\":\"123456@A\",\r\n    \"address\":\"Sylhet\",\r\n    \"role\":\"SENDER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "478"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1de-EBFStIUz6Sjuv77KMX9ik8+pO2A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:31:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"success\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"name\": \"suhag\",\n        \"phone\": \"01766758317\",\n        \"email\": \"abdussalamsuhag104@gmail.com\",\n        \"password\": \"$2b$10$GOkuO.btxzrPyNSYfa7JG.OblAUxHZ.fhx0232SsSVDC/1W0ZeyrS\",\n        \"address\": \"Sylhet\",\n        \"role\": \"SENDER\",\n        \"auths\": [\n            {\n                \"provider\": \"credentials\",\n                \"providerId\": \"01766758317\"\n            }\n        ],\n        \"isDeleted\": false,\n        \"isActive\": \"ACTIVE\",\n        \"_id\": \"688db0ac41a27e88ea9badbb\",\n        \"createdAt\": \"2025-08-02T06:31:08.625Z\",\n        \"updatedAt\": \"2025-08-02T06:31:08.625Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request - user already exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"suhag\",\r\n    \"phone\":\"01766758317\",\r\n    \"email\":\"abdussalamsuhag104@gmail.com\",\r\n    \"password\":\"123456@A\",\r\n    \"address\":\"Sylhet\",\r\n    \"role\":\"SENDER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "499"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f3-S9fSPLOPDLoyhdtCSBX25PwCLcg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:31:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User Already Exist\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 400\n    },\n    \"stack\": \"Error: User Already Exist\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\auth\\\\auth.service.ts:16:11\\n    at Generator.next (<anonymous>)\\n    at fulfilled (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\auth\\\\auth.service.ts:5:58)\\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Credentials Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"phone\":\"01766758317\",\r\n    \"password\":\"123456@A\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"phone\":\"01766758317\",\r\n    \"password\":\"123456@A\"\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0; Path=/; HttpOnly; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU2NzA4NDU3fQ.MepZzpM8B6ddD84wDQbvBjtwiAPe-JQmwR7vI7dZyww; Path=/; HttpOnly; SameSite=None"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "904"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"388-xGpYBfbSSotF14P13XADgb1dJfY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:34:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"User Logged In Successfully\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU2NzA4NDU3fQ.MepZzpM8B6ddD84wDQbvBjtwiAPe-JQmwR7vI7dZyww\",\n        \"user\": {\n            \"_id\": \"688db0ac41a27e88ea9badbb\",\n            \"name\": \"suhag\",\n            \"phone\": \"01766758317\",\n            \"email\": \"abdussalamsuhag104@gmail.com\",\n            \"address\": \"Sylhet\",\n            \"role\": \"SENDER\",\n            \"auths\": [\n                {\n                    \"provider\": \"credentials\",\n                    \"providerId\": \"01766758317\"\n                }\n            ],\n            \"isDeleted\": false,\n            \"isActive\": \"ACTIVE\",\n            \"createdAt\": \"2025-08-02T06:31:08.625Z\",\n            \"updatedAt\": \"2025-08-02T06:31:08.625Z\"\n        }\n    }\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"phone\":\"01766758317\",\r\n    \"password\":\"123456@As\"\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1336"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"538-/N7elfu4PPJOX2HuoU7Yt70X4tA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:35:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Password does not match\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 401\n    },\n    \"stack\": \"Error: Password does not match\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\auth\\\\auth.controller.ts:32:21\\n    at Generator.next (<anonymous>)\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\auth\\\\auth.controller.ts:8:71\\n    at new Promise (<anonymous>)\\n    at __awaiter (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\auth\\\\auth.controller.ts:4:12)\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\auth\\\\auth.controller.ts:27:77\\n    at allFailed (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\passport\\\\lib\\\\middleware\\\\authenticate.js:110:18)\\n    at attempt (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\passport\\\\lib\\\\middleware\\\\authenticate.js:183:28)\\n    at Strategy.strategy.fail (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\passport\\\\lib\\\\middleware\\\\authenticate.js:314:9)\\n    at verified (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\passport-local\\\\lib\\\\strategy.js:82:30)\"\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"phone\":\"01766758317\"\r\n   \r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1619"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"653-Uzz804Ty8aLUK25hGsxAo+ZCS8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:48:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Zod Error\",\n    \"errorSources\": [\n        {\n            \"path\": \"password\",\n            \"message\": \"Password must be string\"\n        }\n    ],\n    \"err\": {\n        \"name\": \"ZodError\",\n        \"message\": \"[\\n  {\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"path\\\": [\\n      \\\"password\\\"\\n    ],\\n    \\\"message\\\": \\\"Password must be string\\\"\\n  }\\n]\"\n    },\n    \"stack\": \"ZodError: [\\n  {\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"path\\\": [\\n      \\\"password\\\"\\n    ],\\n    \\\"message\\\": \\\"Password must be string\\\"\\n  }\\n]\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\middlewares\\\\validateRequest.ts:20:34\\n    at Generator.next (<anonymous>)\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\middlewares\\\\validateRequest.ts:8:71\\n    at new Promise (<anonymous>)\\n    at __awaiter (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\middlewares\\\\validateRequest.ts:4:12)\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\middlewares\\\\validateRequest.ts:7:61\\n    at Layer.handleRequest (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at next (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\router\\\\lib\\\\route.js:157:13)\\n    at Route.dispatch (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\router\\\\lib\\\\route.js:117:3)\\n    at handle (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\node_modules\\\\router\\\\index.js:435:11)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get New Access token with refresh token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNzQ1MiwiZXhwIjoxNzU2NzA5NDUyfQ.K3GiFmZreZhSaMXo3jACthag_ucxW-HwQtXfAAgn2ps",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/refresh-token",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNzQ1MiwiZXhwIjoxNzU2NzA5NDUyfQ.K3GiFmZreZhSaMXo3jACthag_ucxW-HwQtXfAAgn2ps",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/refresh-token",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"refresh-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNzY1MCwiZXhwIjoxNzU0MjA0MDUwfQ.-HVO3n6DkP5vStcpJVoFPpqIswGCdRq2hkq1jU3E_bU; Path=/; HttpOnly; SameSite=None"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "336"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"150-7o9k6sHP1WoH1IjZ1SW8dpgAwqs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:54:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"New Access token created successfully\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNzY1MCwiZXhwIjoxNzU0MjA0MDUwfQ.-HVO3n6DkP5vStcpJVoFPpqIswGCdRq2hkq1jU3E_bU\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/logout",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/logout",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-YOHopv/H2ZCeORIfR6hVzK2Qx8g\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 06:56:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"User Logged out successfully\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Parcel",
+			"item": [
+				{
+					"name": "Create Parcel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"REGULAR\",\r\n    \"weight\":4,\r\n    \"receiver\":{\r\n        \"name\":\"Karim\",\r\n        \"phone\":\"01711002233\",\r\n        \"address\":\"Dhaka\"\r\n\r\n    },\r\n    \"pickingAddress\":\"Sylhet\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"REGULAR\",\r\n    \"weight\":4,\r\n    \"receiver\":{\r\n        \"name\":\"Karim\",\r\n        \"phone\":\"01711002233\",\r\n        \"address\":\"Dhaka\"\r\n\r\n    },\r\n    \"pickingAddress\":\"Sylhet\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "615"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"267-mp/uuZdRpZq/qIV4bkTbVQKgUhs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:06:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"success\": true,\n    \"message\": \"Parcel created successfully\",\n    \"data\": {\n        \"type\": \"REGULAR\",\n        \"weight\": 4,\n        \"sender\": \"688db0ac41a27e88ea9badbb\",\n        \"receiver\": {\n            \"name\": \"Karim\",\n            \"phone\": \"01711002233\",\n            \"address\": \"Dhaka\"\n        },\n        \"pickingAddress\": \"Sylhet\",\n        \"status\": \"REQUESTED\",\n        \"isBlocked\": false,\n        \"_id\": \"688dc717cc43801d5ba9b2cf\",\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:06:47.091Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            }\n        ],\n        \"createdAt\": \"2025-08-02T08:06:47.086Z\",\n        \"updatedAt\": \"2025-08-02T08:06:47.086Z\",\n        \"trackingId\": \"TRK-20250802-758216\",\n        \"deliveryFee\": 130,\n        \"deliveryDate\": \"2025-08-04T08:06:47.091Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get My Parcels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/me",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/me",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "623"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26f-t93h2idTcNrs4gPlcV/egkLsOGU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:07:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"All Parcel retrieved successfully\",\n    \"data\": [\n        {\n            \"_id\": \"688dc717cc43801d5ba9b2cf\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"Karim\",\n                \"phone\": \"01711002233\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"REQUESTED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:06:47.091Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:06:47.086Z\",\n            \"updatedAt\": \"2025-08-02T08:06:47.086Z\",\n            \"trackingId\": \"TRK-20250802-758216\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:06:47.091Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel parcel",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/688dc717cc43801d5ba9b2cf/cancel",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"688dc717cc43801d5ba9b2cf",
+								"cancel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/688dc717cc43801d5ba9b2cf/cancel",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"688dc717cc43801d5ba9b2cf",
+										"cancel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "730"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2da-nZX+eFP5sQ4B89AGvvIwThMmjNM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:08:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Parcel Cancelled successfully\",\n    \"data\": {\n        \"_id\": \"688dc717cc43801d5ba9b2cf\",\n        \"type\": \"REGULAR\",\n        \"weight\": 4,\n        \"sender\": \"688db0ac41a27e88ea9badbb\",\n        \"receiver\": {\n            \"name\": \"Karim\",\n            \"phone\": \"01711002233\",\n            \"address\": \"Dhaka\"\n        },\n        \"pickingAddress\": \"Sylhet\",\n        \"status\": \"CANCELLED\",\n        \"isBlocked\": false,\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:06:47.091Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T03:57:13.624Z\",\n                \"status\": \"CANCELLED\",\n                \"note\": \"Parcel cancelled by sender\"\n            }\n        ],\n        \"createdAt\": \"2025-08-02T08:06:47.086Z\",\n        \"updatedAt\": \"2025-08-02T08:08:17.343Z\",\n        \"trackingId\": \"TRK-20250802-758216\",\n        \"deliveryFee\": 130,\n        \"deliveryDate\": \"2025-08-04T08:06:47.091Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Track parcel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/track/TRK-20250802-758216",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"track",
+								"TRK-20250802-758216"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/track/TRK-20250802-758216",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"track",
+										"TRK-20250802-758216"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "456"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c8-zFLKSiCVKEvWijWbxZjfPqce2rs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:14:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Parcel's details retrieved successfully\",\n    \"data\": {\n        \"_id\": \"688dc717cc43801d5ba9b2cf\",\n        \"receiver\": {\n            \"name\": \"Karim\",\n            \"phone\": \"01711002233\",\n            \"address\": \"Dhaka\"\n        },\n        \"isBlocked\": false,\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:06:47.091Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T03:57:13.624Z\",\n                \"status\": \"CANCELLED\",\n                \"note\": \"Parcel cancelled by sender\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "404 not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/track/TRK-20250802-75821",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"track",
+										"TRK-20250802-75821"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "503"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f7-adkDpW0WWTU/fQl1uT/mg8dzjIs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:15:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Parcel not found\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 404\n    },\n    \"stack\": \"Error: Parcel not found\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\parcel\\\\parcel.service.ts:75:11\\n    at Generator.next (<anonymous>)\\n    at fulfilled (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\parcel\\\\parcel.service.ts:5:58)\\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get incomming parcel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/incomming",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"incomming"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/incomming",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"incomming"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "630"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"276-QWmwmp13zTqRid/jX6HvHEyILw8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:18:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Incomming parcels retrieved successfully\",\n    \"data\": [\n        {\n            \"_id\": \"688dc9c93e93c9533d35f27d\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"suhag\",\n                \"phone\": \"01766758301\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"REQUESTED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:18:17.305Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:18:17.302Z\",\n            \"updatedAt\": \"2025-08-02T08:18:17.302Z\",\n            \"trackingId\": \"TRK-20250802-286914\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:18:17.305Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Confirm Parcel",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/confirm",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"688dc9c93e93c9533d35f27d",
+								"confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 Bad request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/confirm",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"688dc9c93e93c9533d35f27d",
+										"confirm"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "586"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24a-p+y+GQq54bM8vy1LMIexig7Eq+E\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:19:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"You can only confirm parcel when it's status is IN_TRASIT\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 400\n    },\n    \"stack\": \"Error: You can only confirm parcel when it's status is IN_TRASIT\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\parcel\\\\parcel.service.ts:110:11\\n    at Generator.next (<anonymous>)\\n    at fulfilled (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\parcel\\\\parcel.service.ts:5:58)\\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						},
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/confirm",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"688dc9c93e93c9533d35f27d",
+										"confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"475-/kIqVJH8hoXVxlXS+6+WJiq3ovQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:26:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Delivery confirmed successfully\",\n    \"data\": {\n        \"_id\": \"688dc9c93e93c9533d35f27d\",\n        \"type\": \"REGULAR\",\n        \"weight\": 4,\n        \"sender\": \"688db0ac41a27e88ea9badbb\",\n        \"receiver\": {\n            \"name\": \"suhag\",\n            \"phone\": \"01766758301\",\n            \"address\": \"Dhaka\"\n        },\n        \"pickingAddress\": \"Sylhet\",\n        \"status\": \"DELIVERED\",\n        \"isBlocked\": false,\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:18:17.305Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"ASSIGNED\",\n                \"note\": \"Rider assigned by admin\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"PICKED\",\n                \"note\": \"Status updated to PICKED by admin\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"IN_TRANSIT\",\n                \"note\": \"Status updated to IN_TRANSIT by admin\"\n            },\n            {\n                \"location\": \"Dhaka\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"DELIVERED\",\n                \"note\": \"Parcel accepted by receiver\"\n            }\n        ],\n        \"createdAt\": \"2025-08-02T08:18:17.302Z\",\n        \"updatedAt\": \"2025-08-02T08:26:13.356Z\",\n        \"trackingId\": \"TRK-20250802-286914\",\n        \"deliveryFee\": 130,\n        \"deliveryDate\": \"2025-08-04T08:18:17.305Z\",\n        \"assignedRider\": \"688dcafb3e93c9533d35f28d\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delivery History",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/delivery-history",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"delivery-history"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/delivery-history",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"delivery-history"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1168"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"490-tevMx/0OAl27GWNn5sBNDJTxfzA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:26:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"All delivery  history of receiver retrieved successfully\",\n    \"data\": [\n        {\n            \"_id\": \"688dc9c93e93c9533d35f27d\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"suhag\",\n                \"phone\": \"01766758301\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"DELIVERED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:18:17.305Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"ASSIGNED\",\n                    \"note\": \"Rider assigned by admin\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"PICKED\",\n                    \"note\": \"Status updated to PICKED by admin\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"IN_TRANSIT\",\n                    \"note\": \"Status updated to IN_TRANSIT by admin\"\n                },\n                {\n                    \"location\": \"Dhaka\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"DELIVERED\",\n                    \"note\": \"Parcel accepted by receiver\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:18:17.302Z\",\n            \"updatedAt\": \"2025-08-02T08:26:13.356Z\",\n            \"trackingId\": \"TRK-20250802-286914\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:18:17.305Z\",\n            \"assignedRider\": \"688dcafb3e93c9533d35f28d\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get status logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/status-logs",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parcels",
+								"688dc9c93e93c9533d35f27d",
+								"status-logs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "403 forbidden if not sender",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYzk3MDNlOTNjOTUzM2QzNWYyNzYiLCJwaG9uZSI6IjAxNzY2NzU4MzAxIiwicm9sZSI6IlJFQ0VJVkVSIiwiaWF0IjoxNzU0MTIyNjMwLCJleHAiOjE3NTQyMDkwMzB9.vF2ruQ60VcRRTmyQmguHHKIVd8ginhzOnpcQ5luhF8w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/status-logs",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"688dc9c93e93c9533d35f27d",
+										"status-logs"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "535"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"217-ZMnT+eJfteXAJCES7A5wFU72uQs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:27:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"You are not permitted to view this route!\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 403\n    },\n    \"stack\": \"Error: You are not permitted to view this route!\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\middlewares\\\\checkAuth.ts:45:15\\n    at Generator.next (<anonymous>)\\n    at fulfilled (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\middlewares\\\\checkAuth.ts:5:58)\\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						},
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjBhYzQxYTI3ZTg4ZWE5YmFkYmIiLCJwaG9uZSI6IjAxNzY2NzU4MzE3Iiwicm9sZSI6IlNFTkRFUiIsImlhdCI6MTc1NDExNjQ1NywiZXhwIjoxNzU0MjAyODU3fQ.JK8moJsG_e0fTVXuk4tfMlkLN_Lnb9vNikRT1_eznE0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/parcels/688dc9c93e93c9533d35f27d/status-logs",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parcels",
+										"688dc9c93e93c9533d35f27d",
+										"status-logs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "776"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"308-h8MowZht7hSS4adNmyGn157cevw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:28:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Parcel's status logs retrieved successfully\",\n    \"data\": {\n        \"_id\": \"688dc9c93e93c9533d35f27d\",\n        \"sender\": \"688db0ac41a27e88ea9badbb\",\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:18:17.305Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"ASSIGNED\",\n                \"note\": \"Rider assigned by admin\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"PICKED\",\n                \"note\": \"Status updated to PICKED by admin\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"IN_TRANSIT\",\n                \"note\": \"Status updated to IN_TRANSIT by admin\"\n            },\n            {\n                \"location\": \"Dhaka\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"DELIVERED\",\n                \"note\": \"Parcel accepted by receiver\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/users",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1457"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b1-EIWEpqusobg3kKE8CL9OP4sRoh0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:29:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"All users retrieved successfully\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 4,\n        \"totalPage\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"688db03241a27e88ea9badb8\",\n            \"name\": \"System admin\",\n            \"phone\": \"01711223344\",\n            \"email\": \"abdussalamsuhag104@gmail.com\",\n            \"address\": \"Dhaka\",\n            \"role\": \"ADMIN\",\n            \"auths\": [\n                {\n                    \"provider\": \"credentials\",\n                    \"providerId\": \"abdussalamsuhag104@gmail.com\"\n                }\n            ],\n            \"isDeleted\": false,\n            \"isActive\": \"ACTIVE\",\n            \"createdAt\": \"2025-08-02T06:29:06.074Z\",\n            \"updatedAt\": \"2025-08-02T06:29:06.074Z\"\n        },\n        {\n            \"_id\": \"688db688c207772a941835e6\",\n            \"name\": \"suhag\",\n            \"phone\": \"01766758317\",\n            \"email\": \"abdussalamsuhag104@gmail.com\",\n            \"address\": \"Sylhet\",\n            \"role\": \"SENDER\",\n            \"auths\": [\n                {\n                    \"provider\": \"credentials\",\n                    \"providerId\": \"01766758317\"\n                }\n            ],\n            \"isDeleted\": false,\n            \"isActive\": \"ACTIVE\",\n            \"createdAt\": \"2025-08-02T06:56:08.118Z\",\n            \"updatedAt\": \"2025-08-02T06:56:08.118Z\"\n        },\n        {\n            \"_id\": \"688dc9703e93c9533d35f276\",\n            \"name\": \"suhag\",\n            \"phone\": \"01766758301\",\n            \"email\": \"abdussalamsuhag104@gmail.com\",\n            \"address\": \"Sylhet\",\n            \"role\": \"RECEIVER\",\n            \"auths\": [\n                {\n                    \"provider\": \"credentials\",\n                    \"providerId\": \"01766758301\"\n                }\n            ],\n            \"isDeleted\": false,\n            \"isActive\": \"ACTIVE\",\n            \"createdAt\": \"2025-08-02T08:16:48.500Z\",\n            \"updatedAt\": \"2025-08-02T08:16:48.500Z\"\n        },\n        {\n            \"_id\": \"688dcafb3e93c9533d35f28d\",\n            \"name\": \"mr rider\",\n            \"phone\": \"01766750011\",\n            \"email\": \"rider@gmail.com\",\n            \"address\": \"Sylhet\",\n            \"role\": \"RIDER\",\n            \"auths\": [\n                {\n                    \"provider\": \"credentials\",\n                    \"providerId\": \"01766750011\"\n                }\n            ],\n            \"isDeleted\": false,\n            \"isActive\": \"ACTIVE\",\n            \"createdAt\": \"2025-08-02T08:23:23.085Z\",\n            \"updatedAt\": \"2025-08-02T08:23:23.085Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Block User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/block",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"users",
+								"688dcafb3e93c9533d35f28d",
+								"block"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/block",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users",
+										"688dcafb3e93c9533d35f28d",
+										"block"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ae-9IXg4IPBgsaJoMuzTCOqhZ+/fCE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:31:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"User blocked successfully\",\n    \"data\": {\n        \"_id\": \"688dcafb3e93c9533d35f28d\",\n        \"name\": \"mr rider\",\n        \"phone\": \"01766750011\",\n        \"isActive\": \"BLOCKED\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/block",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users",
+										"688dcafb3e93c9533d35f28d",
+										"block"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "505"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f9-e3GqjTGhmE4rNRB5j+d/lnjwdL4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:31:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User aready blocked\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 400\n    },\n    \"stack\": \"Error: User aready blocked\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\admin\\\\admin.service.ts:36:11\\n    at Generator.next (<anonymous>)\\n    at fulfilled (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\admin\\\\admin.service.ts:5:58)\\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Unblock user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/unblock",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"users",
+								"688dcafb3e93c9533d35f28d",
+								"unblock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/users/688dcafb3e93c9533d35f28d/unblock",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users",
+										"688dcafb3e93c9533d35f28d",
+										"unblock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"af-5zu165Lr4oS+Nin6lhx4jhBlPO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:31:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"User unblocked successfully\",\n    \"data\": {\n        \"_id\": \"688dcafb3e93c9533d35f28d\",\n        \"name\": \"mr rider\",\n        \"phone\": \"01766750011\",\n        \"isActive\": \"ACTIVE\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all parcels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/parcels",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"parcels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1847"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"737-Q189pIyZqTroZHj74L75jiYH2Sc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:32:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"All parcels retrieved successfully\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2,\n        \"totalPage\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"688dc9c93e93c9533d35f27d\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"suhag\",\n                \"phone\": \"01766758301\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"DELIVERED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:18:17.305Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"ASSIGNED\",\n                    \"note\": \"Rider assigned by admin\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"PICKED\",\n                    \"note\": \"Status updated to PICKED by admin\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"IN_TRANSIT\",\n                    \"note\": \"Status updated to IN_TRANSIT by admin\"\n                },\n                {\n                    \"location\": \"Dhaka\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"DELIVERED\",\n                    \"note\": \"Parcel accepted by receiver\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:18:17.302Z\",\n            \"updatedAt\": \"2025-08-02T08:26:13.356Z\",\n            \"trackingId\": \"TRK-20250802-286914\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:18:17.305Z\",\n            \"assignedRider\": \"688dcafb3e93c9533d35f28d\"\n        },\n        {\n            \"_id\": \"688dc717cc43801d5ba9b2cf\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"Karim\",\n                \"phone\": \"01711002233\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"CANCELLED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:06:47.091Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                },\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T03:57:13.624Z\",\n                    \"status\": \"CANCELLED\",\n                    \"note\": \"Parcel cancelled by sender\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:06:47.086Z\",\n            \"updatedAt\": \"2025-08-02T08:08:17.343Z\",\n            \"trackingId\": \"TRK-20250802-758216\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:06:47.091Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200  ok delivered parcels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels?status=DELIVERED",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "DELIVERED"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1199"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4af-gcwPrM33NPw+oQ+ePZ7X48Tjoxg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:32:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"All parcels retrieved successfully\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2,\n        \"totalPage\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"688dc9c93e93c9533d35f27d\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"suhag\",\n                \"phone\": \"01766758301\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"DELIVERED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:18:17.305Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"ASSIGNED\",\n                    \"note\": \"Rider assigned by admin\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"PICKED\",\n                    \"note\": \"Status updated to PICKED by admin\"\n                },\n                {\n                    \"location\": \"Admin Panel\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"IN_TRANSIT\",\n                    \"note\": \"Status updated to IN_TRANSIT by admin\"\n                },\n                {\n                    \"location\": \"Dhaka\",\n                    \"time\": \"2025-08-02T08:13:00.134Z\",\n                    \"status\": \"DELIVERED\",\n                    \"note\": \"Parcel accepted by receiver\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:18:17.302Z\",\n            \"updatedAt\": \"2025-08-02T08:26:13.356Z\",\n            \"trackingId\": \"TRK-20250802-286914\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:18:17.305Z\",\n            \"assignedRider\": \"688dcafb3e93c9533d35f28d\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200 ok cancelled parcels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels?searchTerm=cancelled",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels"
+									],
+									"query": [
+										{
+											"key": "searchTerm",
+											"value": "cancelled"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "790"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"316-rC3rUfdInzEU0DCxMZ2UapFG+CA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:34:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"All parcels retrieved successfully\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2,\n        \"totalPage\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"688dc717cc43801d5ba9b2cf\",\n            \"type\": \"REGULAR\",\n            \"weight\": 4,\n            \"sender\": \"688db0ac41a27e88ea9badbb\",\n            \"receiver\": {\n                \"name\": \"Karim\",\n                \"phone\": \"01711002233\",\n                \"address\": \"Dhaka\"\n            },\n            \"pickingAddress\": \"Sylhet\",\n            \"status\": \"CANCELLED\",\n            \"isBlocked\": false,\n            \"statusLogs\": [\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T08:06:47.091Z\",\n                    \"status\": \"REQUESTED\",\n                    \"note\": \"New parcel request by Sender\"\n                },\n                {\n                    \"location\": \"Sylhet\",\n                    \"time\": \"2025-08-02T03:57:13.624Z\",\n                    \"status\": \"CANCELLED\",\n                    \"note\": \"Parcel cancelled by sender\"\n                }\n            ],\n            \"createdAt\": \"2025-08-02T08:06:47.086Z\",\n            \"updatedAt\": \"2025-08-02T08:08:17.343Z\",\n            \"trackingId\": \"TRK-20250802-758216\",\n            \"deliveryFee\": 130,\n            \"deliveryDate\": \"2025-08-04T08:06:47.091Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Block parcel",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/block",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"parcels",
+								"688dc717cc43801d5ba9b2cf",
+								"block"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/block",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels",
+										"688dc717cc43801d5ba9b2cf",
+										"block"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "516"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"204-kje8VV6n+UkiE2AS7p/Brf39hqI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:35:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Parcel blocked successfully\",\n    \"data\": {\n        \"_id\": \"688dc717cc43801d5ba9b2cf\",\n        \"isBlocked\": true,\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:06:47.091Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T03:57:13.624Z\",\n                \"status\": \"CANCELLED\",\n                \"note\": \"Parcel cancelled by sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"BLOCKED\",\n                \"note\": \"Blocked by admin\"\n            }\n        ],\n        \"trackingId\": \"TRK-20250802-758216\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/block",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels",
+										"688dc717cc43801d5ba9b2cf",
+										"block"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "509"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1fd-JQ9UQe6Rki4O4H3vvcPETu1RtiM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:35:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Parcel aready blocked\",\n    \"errorSources\": [],\n    \"err\": {\n        \"statusCode\": 400\n    },\n    \"stack\": \"Error: Parcel aready blocked\\n    at F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\admin\\\\admin.service.ts:94:11\\n    at Generator.next (<anonymous>)\\n    at fulfilled (F:\\\\next level\\\\all assignment\\\\assignment5\\\\parcel-delivery-server\\\\src\\\\app\\\\modules\\\\admin\\\\admin.service.ts:5:58)\\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Unblock parcel",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/unblock",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"parcels",
+								"688dc717cc43801d5ba9b2cf",
+								"unblock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels/688dc717cc43801d5ba9b2cf/unblock",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels",
+										"688dc717cc43801d5ba9b2cf",
+										"unblock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "629"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"275-ThN7d/U6FH1E8632SsoZvVdRWCw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:36:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Parcel unblocked successfully\",\n    \"data\": {\n        \"_id\": \"688dc717cc43801d5ba9b2cf\",\n        \"isBlocked\": false,\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:06:47.091Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T03:57:13.624Z\",\n                \"status\": \"CANCELLED\",\n                \"note\": \"Parcel cancelled by sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"BLOCKED\",\n                \"note\": \"Blocked by admin\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"UNBLOCKED\",\n                \"note\": \"Unblocked by admin\"\n            }\n        ],\n        \"trackingId\": \"TRK-20250802-758216\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Parcel Status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"PICKED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc9c93e93c9533d35f27d/status",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"parcels",
+								"688dc9c93e93c9533d35f27d",
+								"status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"PICKED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels/688dc9c93e93c9533d35f27d/status",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels",
+										"688dc9c93e93c9533d35f27d",
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "506"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1fa-cuu30bvaPr9Tc/uQxvJ0n9r6lHM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:25:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Parcel status updated successfully\",\n    \"data\": {\n        \"_id\": \"688dc9c93e93c9533d35f27d\",\n        \"status\": \"PICKED\",\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:18:17.305Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"ASSIGNED\",\n                \"note\": \"Rider assigned by admin\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"PICKED\",\n                \"note\": \"Status updated to PICKED by admin\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Assign Rider",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"riderId\":\"688dcafb3e93c9533d35f28d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/admin/parcels/688dc9c93e93c9533d35f27d/assign",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"parcels",
+								"688dc9c93e93c9533d35f27d",
+								"assign"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhkYjAzMjQxYTI3ZTg4ZWE5YmFkYjgiLCJwaG9uZSI6IjAxNzExMjIzMzQ0Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MTIzMDY0LCJleHAiOjE3NTQyMDk0NjR9.PMWvQ5gc52m_gSTRN99Pdj6QvEiYWA5rs3B73rXCic0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"riderId\":\"688dcafb3e93c9533d35f28d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/admin/parcels/688dc9c93e93c9533d35f27d/assign",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"parcels",
+										"688dc9c93e93c9533d35f27d",
+										"assign"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "432"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b0-FqMxJgqre3X/ta8cE1ijNqMevoo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Aug 2025 08:24:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Rider assigned in parcel successfully\",\n    \"data\": {\n        \"_id\": \"688dc9c93e93c9533d35f27d\",\n        \"status\": \"ASSIGNED\",\n        \"statusLogs\": [\n            {\n                \"location\": \"Sylhet\",\n                \"time\": \"2025-08-02T08:18:17.305Z\",\n                \"status\": \"REQUESTED\",\n                \"note\": \"New parcel request by Sender\"\n            },\n            {\n                \"location\": \"Admin Panel\",\n                \"time\": \"2025-08-02T08:13:00.134Z\",\n                \"status\": \"ASSIGNED\",\n                \"note\": \"Rider assigned by admin\"\n            }\n        ],\n        \"assignedRider\": \"688dcafb3e93c9533d35f28d\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
