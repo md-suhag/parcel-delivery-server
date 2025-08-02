@@ -33,15 +33,16 @@ const cancelMyParcel = async (parcelId: string, userId: string) => {
     );
   }
 
-  await Parcel.findByIdAndUpdate(
+  const updatedData = await Parcel.findByIdAndUpdate(
     parcelId,
     {
       status: Status.CANCELLED,
       locationForLog: parcel.pickingAddress,
       noteForLog: "Parcel cancelled by sender",
     },
-    { runValidators: true }
+    { runValidators: true, new: true }
   );
+  return updatedData;
 };
 const getStatusLogs = async (parcelId: string, userId: string) => {
   const parcel = await Parcel.findById(parcelId).select("statusLogs sender");

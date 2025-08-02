@@ -35,15 +35,15 @@ const blockUser = async (userId: string) => {
   if (user.isActive === IsActive.BLOCKED) {
     throw new AppError(httpStatus.BAD_REQUEST, "User aready blocked");
   }
-  await User.findByIdAndUpdate(
+  const blockedUser = await User.findByIdAndUpdate(
     userId,
     {
       isActive: IsActive.BLOCKED,
     },
-    { runValidators: true }
-  );
+    { runValidators: true, new: true }
+  ).select("name phone  isActive");
 
-  return null;
+  return blockedUser;
 };
 const unBlockUser = async (userId: string) => {
   const user = await User.findById(userId);
@@ -51,17 +51,18 @@ const unBlockUser = async (userId: string) => {
     throw new AppError(httpStatus.NOT_FOUND, "User not found");
   }
   if (user.isActive === IsActive.ACTIVE) {
-    throw new AppError(httpStatus.BAD_REQUEST, "User aready active");
+    throw new AppError(httpStatus.BAD_REQUEST, "User aready active/unblocked");
   }
-  await User.findByIdAndUpdate(
+
+  const unblockedUser = await User.findByIdAndUpdate(
     userId,
     {
       isActive: IsActive.ACTIVE,
     },
-    { runValidators: true }
-  );
+    { runValidators: true, new: true }
+  ).select("name phone  isActive");
 
-  return null;
+  return unblockedUser;
 };
 
 const getAllParcels = async (query: Record<string, string>) => {
@@ -92,23 +93,23 @@ const blockParcel = async (parcelId: string) => {
   if (parcel.isBlocked === true) {
     throw new AppError(httpStatus.BAD_REQUEST, "Parcel aready blocked");
   }
-  await Parcel.findByIdAndUpdate(
+  const blockedParcel = await Parcel.findByIdAndUpdate(
     parcelId,
     {
       isBlocked: true,
       $push: {
         statusLogs: {
           status: "BLOCKED",
-          location: "Unknown location",
+          location: "Admin Panel",
           note: "Blocked by admin",
           timestamp: new Date(),
         },
       },
     },
-    { runValidators: true }
-  );
+    { runValidators: true, new: true }
+  ).select("statusLogs isBlocked trackingId");
 
-  return null;
+  return blockedParcel;
 };
 const unBlockParcel = async (parcelId: string) => {
   const parcel = await Parcel.findById(parcelId);
@@ -118,23 +119,23 @@ const unBlockParcel = async (parcelId: string) => {
   if (parcel.isBlocked === false) {
     throw new AppError(httpStatus.BAD_REQUEST, "Parcel aready unblocked");
   }
-  await Parcel.findByIdAndUpdate(
+  const unblockedParcel = await Parcel.findByIdAndUpdate(
     parcelId,
     {
       isBlocked: false,
       $push: {
         statusLogs: {
           status: "UNBLOCKED",
-          location: "Unknown location",
+          location: "Admin Panel",
           note: "Unblocked by admin",
           timestamp: new Date(),
         },
       },
     },
-    { runValidators: true }
-  );
+    { runValidators: true, new: true }
+  ).select("statusLogs isBlocked trackingId");
 
-  return null;
+  return unblockedParcel;
 };
 
 const updateParcelStatus = async (parcelId: string, status: Status) => {
@@ -152,21 +153,21 @@ const updateParcelStatus = async (parcelId: string, status: Status) => {
 
   if (!ValidStatusFlow[parcel.status].includes(status)) {
     throw new AppError(
-      httpStatus.BAD_REQUEST,
+      httpStatus.FORBIDDEN,
       `Invalid: transition .You can't change status from ${parcel.status} to ${status}`
     );
   }
 
-  await Parcel.findByIdAndUpdate(
+  const updatedParcel = await Parcel.findByIdAndUpdate(
     parcelId,
     {
       status,
       locationForLog: "Admin Panel",
-      notForLog: `Status updated to ${status} by admin`,
+      noteForLog: `Status updated to ${status} by admin`,
     },
-    { runValidators: true }
-  );
-  return null;
+    { runValidators: true, new: true }
+  ).select("status statusLogs");
+  return updatedParcel;
 };
 
 const assignRider = async (parcelId: string, riderId: string) => {
@@ -181,13 +182,16 @@ const assignRider = async (parcelId: string, riderId: string) => {
       "This parcel is currently blocked"
     );
   }
+  if (parcel.assignedRider) {
+    throw new AppError(httpStatus.CONFLICT, "Rider is already assigned");
+  }
   if (!ValidStatusFlow[parcel.status].includes(Status.ASSIGNED)) {
     throw new AppError(
-      httpStatus.BAD_REQUEST,
-      `Invalid: transition .You can't change status from ${parcel.status} to ${status}`
+      httpStatus.FORBIDDEN,
+      `Invalid: transition .You can't change status from ${parcel.status} to ${Status.ASSIGNED}`
     );
   }
-  await Parcel.findByIdAndUpdate(
+  const updatedParcel = await Parcel.findByIdAndUpdate(
     parcelId,
     {
       status: Status.ASSIGNED,
@@ -195,9 +199,9 @@ const assignRider = async (parcelId: string, riderId: string) => {
       locationForLog: "Admin Panel",
       noteForLog: `Rider assigned by admin`,
     },
-    { runValidators: true }
-  );
-  return null;
+    { runValidators: true, new: true }
+  ).select("status statusLogs assignedRider");
+  return updatedParcel;
 };
 export const AdminService = {
   getAllUsers,
