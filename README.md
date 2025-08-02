@@ -33,6 +33,11 @@ The Parcel Delivery System is a web-based application that allows users to send,
 - Block/Unblock Parcel or User – Admin can block or unblock parcels and users as needed.
 
 - Proper Validation and Error handling – Request data is validated using Zod to ensure clean and safe operations.
+
+- Admin filtering - Admin can filter/search all parcel by status
+
+- Rider assigning - Admin can asign delivery personnel.
+
 - and many more
 
 ## # Installation & Setup :
