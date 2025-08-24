@@ -9,9 +9,8 @@ export const registerZodSchema = z.object({
 
   phone: z
     .string({ message: "Phone number must be a string" })
-    .regex(/^(?:\+8801\d{9}|01\d{9})$/, {
-      message:
-        "Phone number must be valid for Bangladesh. Format: +8801XXXXXXXXX or 01XXXXXXXXX",
+    .regex(/^01\d{9}$/, {
+      message: "Phone number must be valid for Bangladesh. Format: 01XXXXXXXXX",
     }),
   email: z
     .email({ message: "Invalid email address format." })
@@ -37,9 +36,8 @@ export const registerZodSchema = z.object({
 export const credentialsLoginZodSchema = z.object({
   phone: z
     .string({ message: "Phone number must be a string" })
-    .regex(/^(?:\+8801\d{9}|01\d{9})$/, {
-      message:
-        "Phone number must be valid for Bangladesh. Format: +8801XXXXXXXXX or 01XXXXXXXXX",
+    .regex(/^01\d{9}$/, {
+      message: "Phone number must be valid for Bangladesh. Format: 01XXXXXXXXX",
     }),
 
   password: z
