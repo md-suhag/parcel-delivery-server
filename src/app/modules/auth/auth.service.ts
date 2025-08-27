@@ -36,6 +36,7 @@ const register = async (payload: Partial<IUser>) => {
     role,
     ...rest,
   });
+  user.password = undefined;
   return user;
 };
 

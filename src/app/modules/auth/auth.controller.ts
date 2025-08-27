@@ -40,11 +40,7 @@ const credentialsLogin = catchAsync(
         success: true,
         statusCode: httpStatus.OK,
         message: "User Logged In Successfully",
-        data: {
-          accessToken: userTokens.accessToken,
-          refreshToken: userTokens.refreshToken,
-          user: rest,
-        },
+        data: rest,
       });
     })(req, res, next);
   }
@@ -54,13 +50,13 @@ const logout = catchAsync(
   async (req: Request, res: Response, nex: NextFunction) => {
     res.clearCookie("accessToken", {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
     });
     res.clearCookie("refreshToken", {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
     });
 
     sendResponse(res, {
@@ -73,7 +69,14 @@ const logout = catchAsync(
 );
 const getNewAccessToken = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const refreshToken = req.headers.authorization;
+    const refreshToken = req.cookies.refreshToken;
+
+    if (!refreshToken) {
+      throw new AppError(
+        httpStatus.BAD_REQUEST,
+        "No refresh token recieved from cookies"
+      );
+    }
     const tokenInfo = await AuthService.getNewAccessToken(
       refreshToken as string
     );

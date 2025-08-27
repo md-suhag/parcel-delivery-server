@@ -7,7 +7,7 @@ import {
 import { Status } from "../parcel/parcel.interface";
 
 import { Parcel } from "../parcel/parcel.model";
-import { IsActive } from "../user/user.interface";
+import { IsActive, Role } from "../user/user.interface";
 
 import { User } from "../user/user.model";
 import httpStatus from "http-status-codes";
@@ -31,6 +31,12 @@ const blockUser = async (userId: string) => {
   const user = await User.findById(userId);
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, "User not found");
+  }
+  if (user.role === Role.ADMIN) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      "Admin block is not possible currently "
+    );
   }
   if (user.isActive === IsActive.BLOCKED) {
     throw new AppError(httpStatus.BAD_REQUEST, "User aready blocked");

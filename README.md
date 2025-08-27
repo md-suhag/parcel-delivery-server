@@ -118,11 +118,11 @@ npm run dev
 
 ### For Receiver
 
-| Method | Endpoint                    | Description                        |
-| ------ | --------------------------- | ---------------------------------- |
-| GET    | /api/v1/parcels/incoming    | View parcels addressed to receiver |
-| PATCH  | /api/v1/parcels/:id/confirm | Confirm parcel delivery            |
-| GET    | /api/v1/parcels/history     | View delivery history (received)   |
+| Method | Endpoint                         | Description                        |
+| ------ | -------------------------------- | ---------------------------------- |
+| GET    | /api/v1/parcels/incoming         | View parcels addressed to receiver |
+| PATCH  | /api/v1/parcels/:id/confirm      | Confirm parcel delivery            |
+| GET    | /api/v1/parcels/delivery-history | View delivery history (received)   |
 
 ---
 
